@@ -1,0 +1,28 @@
+{
+  "name": "hindu-art",
+  "version": "1.0.0",
+  "description": "A hindu art timeline",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt dev",
+    "start": "nuxt start",
+    "build": "nuxt build",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ./",
+    "lint-fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ./"
+  },
+  "author": "Colin McNeil",
+  "license": "ISC",
+  "dependencies": {
+    "nuxt": "^2.4.3"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.13.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-vue": "^5.1.0",
+    "prettier": "^1.16.4",
+    "push-dir": "^0.4.1"
+  }
+}
