@@ -1,7 +1,7 @@
 <template>
   <div class="point" @mouseover="mouseover" @mouseleave="mouseleave" @mousemove="mousemove" :style="{backgroundImage: `url(${point.image})`, backgroundPosition:`calc(0% + ${4*x}px) calc(0% + ${4*y}px)`}">
     <h2><a :href="point.url" target="_black" noopener>{{point.title}}</a></h2>
-    <p class="year">Circa: {{point.year}}</p>
+    <p class="year">Circa: {{point.year}}, <a :href="`https://maps.google.com/?q=${encodeURI(point.location)}`" target="_blank" noopener>{{point.location}}</a></p>
     <p class="body" v-if="hovered">
       {{ point.body }}
     </p>
@@ -63,7 +63,10 @@ a {
   /* transform: translate(-10%, 0%); */
 }
 .body {
-  font-size: 2rem;
-
+  font-size: 1.7rem;
+  padding: 8px;
+  max-width: 600px;
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.3);
 }
 </style>
