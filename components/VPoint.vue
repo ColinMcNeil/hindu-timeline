@@ -48,7 +48,7 @@ h2 {
   margin: 0;
 }
 a {
-  color: rgb(136, 241, 255);
+  color: #ffd048;
   text-decoration: none;
 }
 .point:hover{
