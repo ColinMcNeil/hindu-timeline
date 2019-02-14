@@ -1,5 +1,5 @@
 <template>
-  <div class="point" @mouseover="mouseover" @mouseleave="mouseleave" @mousemove="mousemove" :style="{backgroundImage: `url(${point.image})`, backgroundPosition:`calc(0% + ${4*x}px) calc(0% + ${4*y}px)`}">
+  <div class="point" @mouseover="mouseover" @mouseleave="mouseleave" @mousemove="mousemove" :style="{backgroundImage: `url(${point.image})`, backgroundPosition:hovered? hoverPos: `0 0`}">
     <h2><a :href="point.url" target="_black" noopener>{{point.title}}</a></h2>
     <p class="year">Circa: {{point.year}}, <a :href="`https://maps.google.com/?q=${encodeURI(point.location)}`" target="_blank" noopener>{{point.location}}</a></p>
     <p class="body" v-if="hovered">
@@ -27,6 +27,15 @@ export default {
       this.hovered=true
     }
 
+  },
+  computed: {
+    hoverPos(){
+      let x = this.x > 400 ? 400 : this.x
+      x = this.x < -400 ? -200 : x
+      let y = this.y > 400 ? 400 : this.y
+      y = this.y < -400 ? -400 : y
+      return  `calc(${2*(x-400)}px) calc(${2*(y-400)}px)`
+    }
   }
 }
 </script>
@@ -38,11 +47,13 @@ export default {
   position: absolute;
   width: 250px;
   height: 25%;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.5);
   background-size: cover;
+  background-repeat: no-repeat;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   background-blend-mode: darken;
   overflow: hidden;
+  transition: background-color ease 0.2s, top 0.2s;
 }
 h2 {
   margin: 0;
@@ -60,6 +71,7 @@ a {
   z-index: 10;
   font-size: 3em;
   background-size: 1500px;
+  background-color: transparent;
   /* transform: translate(-10%, 0%); */
 }
 .body {

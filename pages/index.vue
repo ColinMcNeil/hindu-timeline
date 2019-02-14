@@ -264,9 +264,9 @@ html, body {
 }
 .line {
   height: 7px;
-  background: orange;
-  border-top: solid blue 1px;
-  border-bottom: solid blue 1px;
+  background: white;
+  /* border-top: solid blue 1px;
+  border-bottom: solid blue 1px; */
   top: 50%;
   left: 20px;
   transition: ease 0.2s all;
@@ -276,9 +276,9 @@ html, body {
   position: absolute;
   width: 4px;
   height: 100px;
-  background: orange;
-  border-left: solid blue 1px;
-  border-right: solid blue 1px;
+  background: white;
+  /* border-left: solid blue 1px;
+  border-right: solid blue 1px; */
   margin-left: 400px;
   bottom: 50%;
 }
