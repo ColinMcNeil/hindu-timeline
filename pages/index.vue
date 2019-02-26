@@ -194,7 +194,7 @@ export default {
   components: {
     VPoint
   },
-  data: () => ({ scroll: 10, timeline, windowWidth: 0 }),
+  data: () => ({ scroll: 10, timeline, windowWidth: 700 }),
   computed: {
     width() {
       return `calc(50vw + ${this.scroll}px)`
@@ -212,7 +212,7 @@ export default {
   created() {
     if (process.server) return
     window.addEventListener("scroll", this.handleScroll)
-    this.windowWidth = window.innerWidth
+    //this.windowWidth = e.target.clientWidth
   },
   destroyed() {
     if (process.server) return
@@ -221,7 +221,7 @@ export default {
   methods: {
     handleScroll(e) {
       this.scroll = e.pageX
-      this.windowWidth = e.view.innerWidth
+      this.windowWidth = window.innerWidth
     }
   }
 }
