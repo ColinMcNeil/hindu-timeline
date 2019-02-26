@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :style="{width: (topTimeline.length+1)*400+windowWidth/2+'px'}">
+  <div ref="container" class="container" :style="{width: (topTimeline.length+1)*400+windowWidth/2+'px'}">
     <div class="section top">
       <transition-group class="section top" name="fade">
       <v-point
@@ -212,7 +212,6 @@ export default {
   created() {
     if (process.server) return
     window.addEventListener("scroll", this.handleScroll)
-    //this.windowWidth = e.target.clientWidth
   },
   destroyed() {
     if (process.server) return
@@ -220,7 +219,7 @@ export default {
   },
   methods: {
     handleScroll(e) {
-      this.scroll = e.pageX
+      this.scroll = window.pageXOffset
       this.windowWidth = window.innerWidth
     }
   }
